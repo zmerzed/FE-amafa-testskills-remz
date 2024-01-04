@@ -1,0 +1,129 @@
+.v-input {
+  /**
+	 * Variant theming
+	 * ========================================================================
+	 */
+
+  /**
+	 * All
+	 */
+  .v-input__control {
+    .v-field {
+      .v-field__field {
+        .v-label {
+          opacity: 1;
+          transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
+    }
+
+    .v-field__outline__start {
+      border-radius: 16px 0 0 16px !important;
+    }
+
+    .v-field__outline__end {
+      border-radius: 0 16px 16px 0 !important;
+    }
+  }
+
+  /**
+	 * Outlined
+	 */
+  @mixin outlined-color($color, $class: '', $secondary: '') {
+    .v-field__outline#{$class} {
+      .v-field__outline__start,
+      .v-field__outline__notch,
+      .v-field__outline__end {
+        border-color: $color;
+      }
+
+      .v-field__outline__notch {
+        &::before,
+        &::after {
+          border-color: $color;
+        }
+
+        .v-label.v-field-label--floating {
+          color: if($secondary, $secondary, $color);
+        }
+      }
+    }
+  }
+
+  .v-input__control {
+    .v-field {
+      background-color: $card-bg;
+      border-radius: 16px;
+      &.v-field--variant-outlined {
+        @include outlined-color(#e5e5e5);
+        @include outlined-color(rgb(var(--v-theme-primary)) !important, '.text-primary');
+        @include outlined-color(rgb(var(--v-theme-secondary)) !important, '.text-secondary');
+        @include outlined-color(rgb(var(--v-theme-info)) !important, '.text-info');
+        @include outlined-color(rgb(var(--v-theme-warning)) !important, '.text-warning');
+        @include outlined-color(rgb(var(--v-theme-error)) !important, '.text-error');
+      }
+
+      &.v-field--active.v-field--variant-outlined {
+        @include outlined-color(#e5e5e5, '', rgb(var(--v-theme-text-secondary)));
+
+        .v-field__outline__start,
+        .v-field__outline__notch,
+        .v-field__outline__end {
+          opacity: 1;
+        }
+
+        .v-field__outline__notch {
+          &::before,
+          &::after {
+            opacity: 1;
+          }
+        }
+
+        .v-label.v-field-label--floating {
+          color: #000;
+          opacity: 1;
+        }
+      }
+    }
+
+    .v-field:not(.v-field--no-label) {
+      &.v-field--variant-outlined {
+        .v-label.v-field-label--floating {
+          transform: translateY(30%);
+        }
+      }
+
+      &.v-field--active.v-field--variant-outlined {
+        $paddingAdjustment: 0.45;
+
+        .v-field__input {
+          padding-top: calc(
+            var(--v-field-input-padding-top) + (var(--v-field-input-padding-top) * #{$paddingAdjustment})
+          );
+          padding-bottom: calc(
+            var(--v-field-input-padding-bottom) - (var(--v-field-input-padding-top) * #{$paddingAdjustment})
+          );
+        }
+
+        .v-field__prepend-inner {
+          padding-top: var(--v-field-input-padding-top);
+        }
+
+        .v-field__append-inner {
+          padding-top: calc(var(--v-field-input-padding-top) * 0.75);
+        }
+      }
+    }
+  }
+
+  &--error {
+    .v-input__control {
+      .v-field {
+        &.v-field--variant-outlined {
+          @include outlined-color(rgb(var(--v-theme-error)) !important);
+        }
+      }
+    }
+  }
+  /* ======================================================================== */
+}

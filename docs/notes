@@ -1,0 +1,33 @@
+What items were you able to finish today?
+    - CMS Users bug fixes
+    - CMS First name and lastname for users
+
+What items are you still actively doing?
+    - Activate AWS SNS SMTP
+    - Do an SMS testing
+
+What is blocking your progress?
+    - None
+
+What is next on your list?
+    - Change Logo for the CMS
+
+What movie can you watch over and over without ever getting tired of?
+    - None
+
+Notes
+
+Month 3
+
+    - It will automatically member if you buy the a product whichs has point or stamp connected.
+    - Flow Status: "PROCESSING", "READY", "PICKED_UP" triggered by the Merchant Side
+    - if the order is confirmed then it will become in history
+
+    my tasks-
+        - Merchants can View Orders and Confirm pickup for each Order. Including History & Viewing of Order Details
+        - Users will be able to view list of orders (Upcoming Orders, Past Orders)
+        - SMS (Aws SNS)
+    
+    questions-
+        - Are they allowed to cancel order if the order is processing
+        

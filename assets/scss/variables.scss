@@ -1,0 +1,13 @@
+$body-font-family: 'Poppins';
+$font-primary: #0a0a0a;
+$font-secondary: #474747;
+$font-tertiary: #474747;
+$font-disabled: #cecece;
+$font-white: #ffffff;
+$card-bg: #ffffff;
+$fields-tags: #f3f3f5;
+$stroke: #e5e5e5;
+
+@use 'vuetify' with (
+  $body-font-family: 'Poppins'
+);
